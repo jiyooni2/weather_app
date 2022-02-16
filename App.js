@@ -41,6 +41,7 @@ export default function App() {
     );
     const json = await response.json();
     setDays(json.daily);
+    console.log(json.daily);
   };
 
   useEffect(() => {
@@ -74,6 +75,9 @@ export default function App() {
                 {parseFloat(day.temp.day).toFixed(1)}
               </Text>
               <Text style={styles.description}>{day.weather[0].main}</Text>
+              <Text>{day.humidity}</Text>
+              <Text>{day.feels_like.day}</Text>
+              <Text>{day.weather[0].description}</Text>
             </View>
           ))
         )}
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f9ca24",
   },
   city: {
-    flex: 1,
+    flex: 0.5,
     backgroundColor: "tomato",
     justifyContent: "center",
     alignItems: "center",
